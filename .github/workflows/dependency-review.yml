@@ -7,7 +7,7 @@ on:
     inputs: {}
 
 env:
-  FOSSA_CLI_VERSION: '3.3.10'
+  FOSSA_CLI_VERSION: '3.3.9'
 
 permissions:
   contents: read
@@ -27,10 +27,14 @@ jobs:
         run: |
           pwd
 
-          sudo apt-get install -y tree
+          sudo apt-get install -y tree -a
           tree /home/runner/work
 
-          curl --no-progress-meter -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/v${FOSSA_CLI_VERSION}/install-latest.sh | bash
+          git status
+
+          git show ${{ github.sha }}
+
+          curl --no-progress-meter -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/v${FOSSA_CLI_VERSION}/install.sh | bash
 
           echo '## FOSSA dependency license check' >> $GITHUB_STEP_SUMMARY
           echo '' >> $GITHUB_STEP_SUMMARY
