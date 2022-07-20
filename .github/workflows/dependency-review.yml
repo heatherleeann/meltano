@@ -25,6 +25,11 @@ jobs:
 
       - name: FOSSA dependency license check
         run: |
+          pwd
+
+          sudo apt-get install -y tree
+          tree /home/runner/work
+
           curl --no-progress-meter -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/v${FOSSA_CLI_VERSION}/install-latest.sh | bash
 
           echo '## FOSSA dependency license check' >> $GITHUB_STEP_SUMMARY
