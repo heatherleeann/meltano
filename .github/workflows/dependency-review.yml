@@ -27,8 +27,8 @@ jobs:
         run: |
           pwd
 
-          sudo apt-get install -y tree -a
-          tree /home/runner/work
+          sudo apt-get install -y tree
+          tree -a /home/runner/work
 
           git status
 
