@@ -7,7 +7,7 @@ on:
     inputs: {}
 
 env:
-  FOSSA_CLI_VERSION: '3.3.9'
+  FOSSA_CLI_VERSION: '3.3.10'
 
 permissions:
   contents: read
